@@ -1,6 +1,18 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_stacks.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/25 22:04:44 by luiribei          #+#    #+#             */
+/*   Updated: 2024/09/25 22:38:53 by luiribei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static void	rotate_both(t_stack **a, t_stack **b, t_stack* cheapest_node)
+#include "../../inc/push_swap.h"
+
+static void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
 	while (*b != cheapest_node->target_node && *a != cheapest_node)
 		rr(a, b);
@@ -8,7 +20,7 @@ static void	rotate_both(t_stack **a, t_stack **b, t_stack* cheapest_node)
 	current_index(*b);
 }
 
-static void	reverse_rotate_both(t_stack **a, t_stack **b, t_stack* cheapest_node)
+static void	reverse_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
 	while (*b != cheapest_node->target_node && *a != cheapest_node)
 		rrr(a, b);
@@ -24,7 +36,7 @@ static void	move_a_to_b(t_stack **a, t_stack **b)
 	if(cheapest_node->above_median && cheapest_node->target_node->above_median)
 		rotate_both(a, b, cheapest_node);
 	else if (!(cheapest_node->above_median) && !(cheapest_node->target_node->above_median))
-		rev_rotate_both(a, b, cheapest_node);
+		reverse_rotate_both(a, b, cheapest_node);
 	prep_for_push(a, cheapest_node, 'a');
 	prep_for_push(a, cheapest_node->target_node, 'b');
 	pb(b, a);
@@ -58,13 +70,13 @@ void	sort_stacks(t_stack **a, t_stack **b)
 		pb(b, a);
 	while (len_a-- > 3 && !sorted(*a))
 	{
-		initiate_a(*a, *b);
+		initiate_a_nodes(*a, *b);
 		move_a_to_b(a, b);
 	}
 	sort_three(a);
 	while (*b)
 	{
-		initiate_b(*a, *b);
+		initiate_b_nodes(*a, *b);
 		move_b_to_a(a, b);
 	}
 	current_index(*a);
