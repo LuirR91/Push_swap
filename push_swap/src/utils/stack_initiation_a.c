@@ -6,7 +6,7 @@
 /*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 22:05:28 by luiribei          #+#    #+#             */
-/*   Updated: 2024/09/26 11:51:05 by luiribei         ###   ########.fr       */
+/*   Updated: 2024/09/26 21:05:34 by luiribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void	initiate_stack_a(t_stack **a, char **av)
 	int		i;
 
 	i = 0;
-
 	while (av[i])
 	{
 		if (syntax_error(av[i]))
@@ -81,11 +80,11 @@ void	initiate_stack_a(t_stack **a, char **av)
 
 t_stack	*get_cheapest(t_stack *stack)
 {
-	if(!(stack))
+	if(!stack)
 		return (NULL);
 	while (stack)
 	{
-		if(stack->cheapest)
+		if (stack->cheapest)
 			return (stack);
 		stack = stack->next;
 	}

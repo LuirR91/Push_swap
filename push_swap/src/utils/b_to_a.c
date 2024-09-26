@@ -6,7 +6,7 @@
 /*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 22:05:39 by luiribei          #+#    #+#             */
-/*   Updated: 2024/09/26 11:39:26 by luiribei         ###   ########.fr       */
+/*   Updated: 2024/09/26 21:01:59 by luiribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static void	set_target_b(t_stack *a, t_stack *b)
 		current_a = a;
 		while (current_a)
 		{
-			if (current_a->nbr > b->nbr && current_a->nbr < best_index_match)
+			if (current_a->nbr > b->nbr
+				&& current_a->nbr < best_index_match)
 			{
 				best_index_match = current_a->nbr;
 				target_node = current_a;

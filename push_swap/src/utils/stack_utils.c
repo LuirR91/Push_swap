@@ -6,7 +6,7 @@
 /*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 22:05:24 by luiribei          #+#    #+#             */
-/*   Updated: 2024/09/26 11:32:14 by luiribei         ###   ########.fr       */
+/*   Updated: 2024/09/26 21:06:53 by luiribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	stack_len(t_stack *stack)
 {
 	int	i;
 
-	if(!stack)
+	if (!stack)
 		return (0);
 	i = 0;
 	while (stack)
@@ -29,7 +29,7 @@ int	stack_len(t_stack *stack)
 
 t_stack	*get_last_node(t_stack *stack)
 {
-	if(!stack)
+	if (!stack)
 		return (NULL);
 	while (stack->next)
 		stack = stack->next;

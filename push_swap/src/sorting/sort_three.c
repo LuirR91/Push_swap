@@ -6,7 +6,7 @@
 /*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 22:04:50 by luiribei          #+#    #+#             */
-/*   Updated: 2024/09/26 11:36:34 by luiribei         ###   ########.fr       */
+/*   Updated: 2024/09/26 21:16:03 by luiribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@ void	sort_three(t_stack **a)
 	t_stack	*biggest;
 
 	biggest = get_max(*a);
-	
-	if(biggest == *a)
+	if (biggest == *a)
 		ra(a);
-	else if((*a)->next == biggest)
+	else if ((*a)->next == biggest)
 		rra(a);
-	if((*a)->nbr > (*a)->next->nbr)
+	if ((*a)->nbr > (*a)->next->nbr)
 		sa(a);
 }

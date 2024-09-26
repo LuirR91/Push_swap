@@ -6,7 +6,7 @@
 #    By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/25 22:05:19 by luiribei          #+#    #+#              #
-#    Updated: 2024/09/26 11:56:42 by luiribei         ###   ########.fr        #
+#    Updated: 2024/09/26 15:24:03 by luiribei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ_DIR = obj/
 
 # Compiler and CFlags
 CC		= cc
-CFLAGS	= -Wall -Wextra -Werror -I$(INC)
+CFLAGS	= -Wall -Wextra -Werror -g -I$(INC)
 RM		= rm -f
 
 # Source Files

@@ -6,7 +6,7 @@
 /*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 22:05:42 by luiribei          #+#    #+#             */
-/*   Updated: 2024/09/26 11:38:47 by luiribei         ###   ########.fr       */
+/*   Updated: 2024/09/26 20:58:58 by luiribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	current_index(t_stack *stack)
 	int	median;
 
 	i = 0;
-	if(!(stack))
+	if(!stack)
 		return ;
 	median = stack_len(stack) / 2;
 	while (stack)
@@ -29,7 +29,7 @@ void	current_index(t_stack *stack)
 		else
 			stack->above_median = false;
 		stack = stack->next;
-		i++;
+		++i;
 	}
 }
 
@@ -45,7 +45,8 @@ static void	set_target_a(t_stack *a, t_stack *b)
 		current_b = b;
 		while (current_b)
 		{
-			if (current_b->nbr < a->nbr && current_b->nbr > best_index_match)
+			if (current_b->nbr < a->nbr
+				&& current_b->nbr > best_index_match)
 			{
 				best_index_match = current_b->nbr;
 				target_node = current_b;
@@ -85,7 +86,7 @@ void	set_cheapest(t_stack *stack)
 	long	cheapest_value;
 	t_stack	*cheapest_node;
 
-	if (!(stack))
+	if (!stack)
 		return ;
 	cheapest_value = LONG_MAX;
 	while (stack)

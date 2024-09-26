@@ -6,21 +6,27 @@
 /*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 22:05:35 by luiribei          #+#    #+#             */
-/*   Updated: 2024/09/26 11:12:33 by luiribei         ###   ########.fr       */
+/*   Updated: 2024/09/26 20:57:19 by luiribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-int	syntax_error(char *str)
+int	syntax_error(char *str_n)
 {
-	if (!(*str == '+' || *str == '-' || (*str >= '0' && *str <= '9')))
+	if (!(*str_n == '+'
+			|| *str_n == '-'
+			|| (*str_n >= '0' && *str_n <= '9')))
 		return (1);
-	if ((*str == '+' || *str == '-') && (!(str[1] >= '0') && str[1] <= 9))
+	if ((*str_n == '+'
+			|| *str_n == '-')
+		&& !(str_n[1] >= '0' && str_n[1] <= '9'))
 		return (1);
-	while (*str)
-		if (!(*str >= '0' && *str <= '9'))
+	while (*++str_n)
+	{
+		if (!(*str_n >= '0' && *str_n <= '9'))
 			return (1);
+	}
 	return (0);
 }
 
@@ -42,9 +48,8 @@ void	free_stack(t_stack **stack)
 	t_stack	*tmp;
 	t_stack	*current;
 
-	if (!(*stack))
+	if (!stack)
 		return ;
-	
 	current = *stack;
 	while (current)
 	{
