@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack initiation_a.c                               :+:      :+:    :+:   */
+/*   stack_initiation_a.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 22:05:28 by luiribei          #+#    #+#             */
-/*   Updated: 2024/09/25 22:05:29 by luiribei         ###   ########.fr       */
+/*   Updated: 2024/09/26 11:51:05 by luiribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	append_node(t_stack **stack, int n)
 	}
 	else
 	{
-		last_node = get_last_node(stack);
+		last_node = get_last_node(*stack);
 		last_node->next = node;
 		node->prev = last_node;
 	}
@@ -63,6 +63,8 @@ void	initiate_stack_a(t_stack **a, char **av)
 	long	n;
 	int		i;
 
+	i = 0;
+
 	while (av[i])
 	{
 		if (syntax_error(av[i]))
@@ -70,22 +72,22 @@ void	initiate_stack_a(t_stack **a, char **av)
 		n = ft_atol(av[i]);
 		if (n > INT_MAX || n < INT_MIN)
 			free_errors(a);
-		if (dup_error(a, (int)n))
+		if (dup_error(*a, (int)n))
 			free_errors(a);
 		append_node(a, (int)n);
 		i++;
 	}
 }
 
-t_stack	*get_cheapest(t_stack **stack)
+t_stack	*get_cheapest(t_stack *stack)
 {
-	if(!(*stack))
+	if(!(stack))
 		return (NULL);
-	while (*stack)
+	while (stack)
 	{
-		if((*stack)->cheapest)
-			return (*stack);
-		*stack = (*stack)->next;
+		if(stack->cheapest)
+			return (stack);
+		stack = stack->next;
 	}
 	return (NULL);
 }

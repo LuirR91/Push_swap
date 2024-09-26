@@ -6,7 +6,7 @@
 /*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 22:05:35 by luiribei          #+#    #+#             */
-/*   Updated: 2024/09/25 22:05:36 by luiribei         ###   ########.fr       */
+/*   Updated: 2024/09/26 11:12:33 by luiribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ int	syntax_error(char *str)
 	return (0);
 }
 
-int	dup_error(t_stack **a, int n)
+int	dup_error(t_stack *a, int n)
 {
-	if (!*a)
+	if (!a)
 		return (0);
-	while (*a)
+	while (a)
 	{
-		if ((*a)->nbr == n)
+		if (a->nbr == n)
 			return (1);
-		*a = (*a)->next;
+		a = a->next;
 	}
 	return (0);
 }
@@ -42,7 +42,7 @@ void	free_stack(t_stack **stack)
 	t_stack	*tmp;
 	t_stack	*current;
 
-	if (!stack)
+	if (!(*stack))
 		return ;
 	
 	current = *stack;

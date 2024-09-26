@@ -6,7 +6,7 @@
 /*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 22:05:50 by luiribei          #+#    #+#             */
-/*   Updated: 2024/09/25 22:05:51 by luiribei         ###   ########.fr       */
+/*   Updated: 2024/09/26 11:31:00 by luiribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_stack
 
 // Errors
 int	syntax_error(char *str);
-int	dup_error(t_stack **a, int n);
+int	dup_error(t_stack *a, int n);
 void	free_stack(t_stack **stack);
 void	free_errors(t_stack **a);
 
@@ -44,17 +44,17 @@ void	initiate_stack_a(t_stack **a, char **av);
 // Nodes initiation
 void	initiate_a_nodes(t_stack *a, t_stack *b);
 void	initiate_b_nodes(t_stack *a, t_stack *b);
-void	current_index(t_stack **stack);
-void	set_cheapest(t_stack **stack);
-t_stack	*get_cheapest(t_stack **stack);
+void	current_index(t_stack *stack);
+void	set_cheapest(t_stack *stack);
+t_stack	*get_cheapest(t_stack *stack);
 void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name);
 
 // Stack utils
-int	stack_len(t_stack **stack);
+int	stack_len(t_stack *stack);
 t_stack	*get_last_node(t_stack *stack);
-t_stack	*get_min(t_stack **stack);
-t_stack	*get_max(t_stack **stack);
-bool sorted(t_stack **stack);
+t_stack	*get_min(t_stack *stack);
+t_stack	*get_max(t_stack *stack);
+bool sorted(t_stack *stack);
 
 // Commands
 void	pa(t_stack **a, t_stack **b);

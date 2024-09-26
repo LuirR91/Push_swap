@@ -6,7 +6,7 @@
 /*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 22:04:08 by luiribei          #+#    #+#             */
-/*   Updated: 2024/09/25 22:04:10 by luiribei         ###   ########.fr       */
+/*   Updated: 2024/09/26 10:40:09 by luiribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	rotate(t_stack **stack)
 	if (!(*stack) || !((*stack)->next))
 		return ;
 	tmp = (*stack)->next;
-	get_last_node(stack)->next = *stack;
+	get_last_node(*stack)->next = *stack;
 	(*stack)->next = NULL;
 	*stack = tmp;
 }

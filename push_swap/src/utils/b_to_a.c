@@ -6,7 +6,7 @@
 /*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 22:05:39 by luiribei          #+#    #+#             */
-/*   Updated: 2024/09/25 22:05:40 by luiribei         ###   ########.fr       */
+/*   Updated: 2024/09/26 11:39:26 by luiribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	set_target_b(t_stack *a, t_stack *b)
 			current_a = current_a->next;
 		}
 		if (best_index_match == LONG_MAX)
-			b->target_node = get_min(&a);
+			b->target_node = get_min(a);
 		else
 			b->target_node = target_node;
 		b = b->next;
@@ -41,7 +41,7 @@ static void	set_target_b(t_stack *a, t_stack *b)
 
 void	initiate_b_nodes(t_stack *a, t_stack *b)
 {
-	current_index(&a);
-	current_index(&b);
+	current_index(a);
+	current_index(b);
 	set_target_b(a, b);
 }
