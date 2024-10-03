@@ -6,7 +6,7 @@
 /*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 22:05:28 by luiribei          #+#    #+#             */
-/*   Updated: 2024/09/26 21:05:34 by luiribei         ###   ########.fr       */
+/*   Updated: 2024/10/03 15:39:56 by luiribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,15 @@ static void	append_node(t_stack **stack, int n)
 	t_stack	*node;
 	t_stack	*last_node;
 
-	if(!stack)
+	if (!stack)
 		return ;
 	node = malloc(sizeof(t_stack));
 	if (!node)
 		return ;
 	node->next = NULL;
 	node->nbr = n;
-	if(!(*stack))
+	node->cheapest = false;
+	if (!(*stack))
 	{
 		*stack = node;
 		node->prev = NULL;
@@ -80,7 +81,7 @@ void	initiate_stack_a(t_stack **a, char **av)
 
 t_stack	*get_cheapest(t_stack *stack)
 {
-	if(!stack)
+	if (!stack)
 		return (NULL);
 	while (stack)
 	{

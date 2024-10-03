@@ -6,7 +6,7 @@
 /*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 22:03:59 by luiribei          #+#    #+#             */
-/*   Updated: 2024/09/25 22:34:59 by luiribei         ###   ########.fr       */
+/*   Updated: 2024/10/03 15:34:01 by luiribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	reverse_rotate(t_stack **stack)
 {
 	t_stack	*tmp;
+
 	if (!(*stack) || !((*stack)->next))
 		return ;
 	tmp = get_last_node(*stack);

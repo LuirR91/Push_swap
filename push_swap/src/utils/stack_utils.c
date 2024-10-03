@@ -6,7 +6,7 @@
 /*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 22:05:24 by luiribei          #+#    #+#             */
-/*   Updated: 2024/09/26 21:06:53 by luiribei         ###   ########.fr       */
+/*   Updated: 2024/10/03 15:40:12 by luiribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_stack	*get_max(t_stack *stack)
 	return (tmp);
 }
 
-bool sorted(t_stack *stack)
+bool	sorted(t_stack *stack)
 {
 	if (!stack)
 		return (false);

@@ -6,20 +6,19 @@
 /*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 22:05:32 by luiribei          #+#    #+#             */
-/*   Updated: 2024/09/26 16:54:49 by luiribei         ###   ########.fr       */
+/*   Updated: 2024/10/03 15:33:03 by luiribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main (int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_stack	*a;
-	t_stack *b;
+	t_stack	*b;
 
 	a = NULL;
 	b = NULL;
-
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (1);
 	initiate_stack_a(&a, av + 1);

@@ -6,7 +6,7 @@
 /*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 22:05:35 by luiribei          #+#    #+#             */
-/*   Updated: 2024/09/26 20:57:19 by luiribei         ###   ########.fr       */
+/*   Updated: 2024/10/03 12:14:05 by luiribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ void	free_stack(t_stack **stack)
 void	free_errors(t_stack **a)
 {
 	free_stack(a);
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }

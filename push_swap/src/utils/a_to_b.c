@@ -6,7 +6,7 @@
 /*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 22:05:42 by luiribei          #+#    #+#             */
-/*   Updated: 2024/09/26 20:58:58 by luiribei         ###   ########.fr       */
+/*   Updated: 2024/10/03 15:39:19 by luiribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	current_index(t_stack *stack)
 	int	median;
 
 	i = 0;
-	if(!stack)
+	if (!stack)
 		return ;
 	median = stack_len(stack) / 2;
 	while (stack)
@@ -61,7 +61,7 @@ static void	set_target_a(t_stack *a, t_stack *b)
 	}
 }
 
-static void	cost_analysis_a (t_stack *a, t_stack *b)
+static void	cost_analysis_a(t_stack *a, t_stack *b)
 {
 	int	len_a;
 	int	len_b;
