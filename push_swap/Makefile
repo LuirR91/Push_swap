@@ -6,7 +6,7 @@
 #    By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/25 22:05:19 by luiribei          #+#    #+#              #
-#    Updated: 2024/09/26 15:24:03 by luiribei         ###   ########.fr        #
+#    Updated: 2024/10/03 10:02:53 by luiribei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ_DIR = obj/
 
 # Compiler and CFlags
 CC		= cc
-CFLAGS	= -Wall -Wextra -Werror -g -I$(INC)
+CFLAGS	= -Wall -Wextra -Werror -O3 -g -I$(INC)
 RM		= rm -f
 
 # Source Files
@@ -74,10 +74,5 @@ re:					fclean all
 					@echo "Performing a full rebuild..."
 					@$(MAKE) all
 
-start:
-					@echo "Starting the build process..."
-					@$(MAKE) all
-					@echo "Build process completed successfully."
-
 # Phony targets represent actions/commands not files
-.PHONY:	all clean fclean re start
+.PHONY:	all clean fclean re
