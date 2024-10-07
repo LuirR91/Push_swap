@@ -6,7 +6,7 @@
 /*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 22:03:40 by luiribei          #+#    #+#             */
-/*   Updated: 2024/09/25 22:03:43 by luiribei         ###   ########.fr       */
+/*   Updated: 2024/10/03 15:33:40 by luiribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	push(t_stack **src, t_stack **dest)
 {
 	t_stack	*tmp;
 
-	if(!(*dest))
+	if (!(*dest))
 		return ;
 	tmp = (*dest)->next;
 	(*dest)->next = *src;

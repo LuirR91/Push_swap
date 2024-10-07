@@ -6,28 +6,31 @@
 /*   By: luiribei <luiribei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 22:04:44 by luiribei          #+#    #+#             */
-/*   Updated: 2024/09/26 21:18:35 by luiribei         ###   ########.fr       */
+/*   Updated: 2024/10/03 16:00:00 by luiribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-static void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
+static void	rotate_or_rev_rotate(t_stack **a, t_stack **b,
+	t_stack *cheapest_node, int flag)
 {
-	while (*b != cheapest_node->target_node
-		&& *a != cheapest_node)
-		rr(a, b);
-	current_index(*a);
-	current_index(*b);
-}
-
-static void	reverse_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
-{
-	while (*b != cheapest_node->target_node
-		&& *a != cheapest_node)
-		rrr(a, b);
-	current_index(*a);
-	current_index(*b);
+	if (flag == '1')
+	{
+		while (*b != cheapest_node->target_node
+			&& *a != cheapest_node)
+			rr(a, b);
+		current_index(*a);
+		current_index(*b);
+	}
+	if (flag == '2')
+	{
+		while (*b != cheapest_node->target_node
+			&& *a != cheapest_node)
+			rrr(a, b);
+		current_index(*a);
+		current_index(*b);
+	}
 }
 
 static void	move_a_to_b(t_stack **a, t_stack **b)
@@ -35,12 +38,12 @@ static void	move_a_to_b(t_stack **a, t_stack **b)
 	t_stack	*cheapest_node;
 
 	cheapest_node = get_cheapest(*a);
-	if(cheapest_node->above_median
+	if (cheapest_node->above_median
 		&& cheapest_node->target_node->above_median)
-		rotate_both(a, b, cheapest_node);
+		rotate_or_rev_rotate(a, b, cheapest_node, 1);
 	else if (!(cheapest_node->above_median)
 		&& !(cheapest_node->target_node->above_median))
-		reverse_rotate_both(a, b, cheapest_node);
+		rotate_or_rev_rotate(a, b, cheapest_node, 2);
 	prep_for_push(a, cheapest_node, 'a');
 	prep_for_push(b, cheapest_node->target_node, 'b');
 	pb(b, a);
